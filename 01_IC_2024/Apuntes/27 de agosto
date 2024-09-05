@@ -1,0 +1,130 @@
+
+27 de agosto
+
+Datos meteorologicos de la region de sonora:Pronostico meteorologico de la UNISON,PROMETEUS
+Estaciones meteorologicas de aeropuertos(weatherunderground) 
+
+Great Expectations es un framework para para revisar la calidad de datos
+GX core: Biblioteca de python de great expectations .
+
+documentación:https://docs.greatexpectations.io/docs/home/
+
+Set up a GX environment:
+    Data context
+        Linea en python:
+        context=gx.get_context()
+  
+
+Connect to data:
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    Data Source
+        Linea en python:
+        data_source=context.data_sources.add_pandas("pandas")
+    Data Asset
+        Linea en python:
+        data_asset=data_source.add_dataframe_asset(name="pd.dataframe_asset")
+    Batch definition
+        batch_definition=data_asset.add_batch_definition_whole_dataframe("batch_definition")
+    Batch
+        batch=batch_definition.
+
+Define Expectations:
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    Expectation
+    Expectation Suite
+        suite=context.suites.add(
+            gx.core.expectation_suite.ExpecationSuite(name="expectations")
+
+        suite.add_expectation(
+        gx.expectations.ExpectColumnValuesToBeBetween(
+            column="passenger_count"
+            max_value=,
+            min_value=,
+
+
+Run Validations:
+    Validation Definition
+        validation definition=context.validation_definitions.add(
+        gx.core.validation_definition.ValidationDefinition(
+        name="validation definition"
+        data=batch_definition,
+        suite=suite
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    Validation Result 
+    Checkpoint
+        checkpoint=context.checkpoints.add(
+           gx.checkpoint.checkpoint.Checkpoint(
+            name="checkpoint",validation_definitions=[validation_definition]
+            )
+        )
+
+
+    Actions
+    Data Docs
+    checkpoint_result=checkpoint.run(batch_parameters=("dataframe":
+
+
+Otro framework para gestionar a calidad de datos es pandera.
+La idea es que funcione directamente al dataframe que tengas
+
+   pandas
+   pyspark
+   geopandas
+   polars
+   io
+
+Primero tenemos un dataframe cualquiera.
+Despues, hacemos un esquema utilizando la biblioiteca de pandera donde asignamos directamente las condiciones que debe cumplir los datos
+para que sean validos por columna. 
+
+documentacion pandera:https://pandera.readthedocs.io/en/stable/ 
+
+
+Auditabilidad de los datos
+
+DVC(Data version control)
+Herramienta para tener el control de versiones de los datos dentro del git, sin tener los datos dentro de git.
+Facil para establecer pipelines
+Tambien es para trackear cambios en los modelos de datos
+
+Como funciona
+Instalacion
+    pip install dvc
+Inializacion:
+    Se crea un archivo dvc.yaml para deinifir los archivos de datos y sus metadatos
+Seguimiento de datos:Se utiliza el comando dvc add para comenzar a reastrear los archivos de datos en DVC.
+Almacenamiento remoto:
+    Se configura un almacenamiento remoto para almacenar los datos de forma eficiente
+Versionado de datos:Se utiliza el comando dvc commit para realizar un seguimiento de los cambios en los datos y guardar las versiones en el repositorio. 
+Acceso Remoto:
+    Los miembros del equipo pueden acceder a las versiones de los datos mediante comandos como dvc pull y dvc push
+
+En general, los entornos como DataBricks o Alteryx ya tienen integrado DVC.
+
+Configuracion de Remotos
+    remote add -d myremote s3:://mybucket/dvcstore
+
+Sincronizacion de datos
+    Despues de añadir un archivo y commit el cambio a git
+
+Ejemplo de uso 
+Inicializacion del proyect DVC
+    dvc init
+Seguimiento de los datos
+    dvc add data/train.csv
+Almacenamiento remoto
+    dvc remote add s3 s3://my-bucket/
+Subir los datos a S3
+    dvc push
+Descargar los datos desde S3
+    dvc pull
+
+
+Exploracion de Datos
+
+Variables cualitativas
+
+
+
+
+

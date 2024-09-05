@@ -1,0 +1,20 @@
+#3 de septiembre 2024
+https://mcd-unison.github.io/ing-caract/eda2/ 
+
+
+*Nota:Hay que buscar, incluso en los casos de uso de fechas, que los indices de un dataframe sean unicos. Por eso hay que tener cuidado al utilizar fechas o timestamps como indices.*
+
+pandas_datareader: biblioteca
+
+Existe el método de "rolling.()" para calcular curvas de la media y promedio de una serie de datos
+
+##Expresiones regulares
+
+*Nota:Siempre es bueno asegurarse que una columna que viene guardada cómo tipo "Object" se le asigne el tipo adecuado, ya que luego se pueden prestar errores de conversión prevenibles.
+
+Se discute a fondo cómo funcionan los métodos de pandas actuando sobre una columna de un dataframe y algunas restricciones. Se aclaran algunos detalles acerca de cómo interpretar las columnas dentro de un dataframe de pandas(cómo series). 
+
+
+
+
+
